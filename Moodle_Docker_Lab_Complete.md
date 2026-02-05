@@ -141,7 +141,7 @@ Container A (moodle_app)  --[Bridge Network]--> Container B (moodle_db)
 - รองรับหลายภาษา
 
 #### 2.5.2 Moodle System Architecture
-
+![System Architecture](images/architecture2.png)
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │                     Presentation Layer                       │
