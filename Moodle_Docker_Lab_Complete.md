@@ -141,48 +141,8 @@ Container A (moodle_app)  --[Bridge Network]--> Container B (moodle_db)
 - รองรับหลายภาษา
 
 #### 2.5.2 Moodle System Architecture
+![Moodle System Architecture](images/moodle_architecture.png)
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                     Presentation Layer                       │
-│  ┌────────────┐  ┌────────────┐  ┌────────────┐              │
-│  │   Web UI   │  │   Mobile   │  │  Web API   │              │
-│  │  (Browser) │  │    App     │  │            │              │
-│  └────────────┘  └────────────┘  └────────────┘              │
-└──────────────────────────────────────────────────────────────┘
-                           │
-┌──────────────────────────────────────────────────────────────┐
-│                    Application Layer                         │
-│  ┌─────────────────────────────────────────────────────────┐ │
-│  │              Moodle Core (PHP)                          │ │
-│  │  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌──────────┐       │ │
-│  │  │ Course  │ │  User   │ │  Quiz   │ │  Forum   │       │ │
-│  │  │ Module  │ │ Module  │ │ Module  │ │  Module  │       │ │
-│  │  └─────────┘ └─────────┘ └─────────┘ └──────────┘       │ │
-│  │  ┌─────────┐ ┌─────────┐ ┌─────────┐                    │ │
-│  │  │ Plugin  │ │ Plugin  │ │ Plugin  │                    │ │
-│  │  │  API    │ │  API    │ │  API    │                    │ │
-│  │  └─────────┘ └─────────┘ └─────────┘                    │ │
-│  └─────────────────────────────────────────────────────────┘ │
-│                                                              │
-│  ┌────────────────────┐      ┌──────────────────────────┐    │
-│  │   Apache/Nginx     │      │      PHP-FPM             │    │
-│  │   Web Server       │◄────►│   PHP Processor          │    │
-│  └────────────────────┘      └──────────────────────────┘    │
-└──────────────────────────────────────────────────────────────┘
-                           │
-┌──────────────────────────────────────────────────────────────┐
-│                      Data Layer                              │
-│  ┌────────────────────┐      ┌──────────────────────────┐    │
-│  │    Database        │      │    File Storage          │    │
-│  │  (MariaDB/MySQL/   │      │   (moodledata)           │    │
-│  │   PostgreSQL)      │      │  - Uploaded files        │    │
-│  │  - User data       │      │  - Cache                 │    │
-│  │  - Course data     │      │  - Temp files            │    │
-│  │  - Grades          │      │  - Sessions              │    │
-│  └────────────────────┘      └──────────────────────────┘    │
-└──────────────────────────────────────────────────────────────┘
-```
 
 #### 2.5.3 Moodle Data Flow
 
@@ -325,45 +285,8 @@ User Request
 ```
 
 ### 3.3 Volume และ Data Persistence
+![Volume and Data Persistence](images/volumedata.jpg)
 
-```
-Container Lifecycle vs Data Lifecycle
-
-TIME: ───────────────────────────────────►
-
-Container:
-  Create ──► Running ──► Stop ──► Remove
-    │          │          │         │
-    │          │          │         ▼
-    │          │          │    ❌ Container deleted
-    │          │          │       All data in
-    │          │          │       container LOST
-    │          │          │
-    ▼          ▼          ▼
-Volume:
-  Create ──► In Use ──► Persist ──► Persist
-    │          │          │           │
-    │          │          │           │
-    │      (Data is       │           │
-    │       being         │       ✅ Data still
-    │       written)      │          exists!
-    │                     │
-    └─────────────────────┴───────────┘
-         Named Volume maintains data
-         independent of container
-         
-Example:
-┌────────────────────────────────────────┐
-│ docker-compose down                    │
-│ └─► Containers deleted ❌              │
-│     Volumes remain ✅                  │
-│                                        │
-│ docker-compose down -v                 │
-│ └─► Containers deleted ❌              │
-│     Volumes deleted ❌                 │
-│     ALL DATA LOST! ⚠️                  │
-└────────────────────────────────────────┘
-```
 
 ### 3.4 Component Interaction Matrix
 
