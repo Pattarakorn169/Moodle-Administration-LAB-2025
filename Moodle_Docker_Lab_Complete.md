@@ -348,9 +348,10 @@ Creating moodle_app ... done
 ```
 
 **บันทึกผลการทดลอง 2:**
-```bash
- รูปผลการรัน docker-compose ที่สมบูรณ์ 
-```
+
+ <img width="473" height="265" alt="image" src="https://github.com/user-attachments/assets/089892ec-ba42-48e5-8696-4ab36156e466" />
+
+
 
 #### 2.3 ตรวจสอบสถานะ Containers
 
