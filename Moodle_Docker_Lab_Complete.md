@@ -647,7 +647,7 @@ Course Category ใช้จัดกลุ่มรายวิชาตาม�
 
 **บันทึกผลการทดลอง 7:**
 
-<img width="944" height="894" alt="image" src="https://github.com/user-attachments/assets/f22a7f09-703d-46be-96da-16ee83be317a" />
+<img width="1901" height="765" alt="image" src="https://github.com/user-attachments/assets/bc9c078b-42cb-42c9-8549-295d21daafdc" />
 
 
 #### 6.2.2 สร้าง Course (รายวิชา)
@@ -718,9 +718,10 @@ Learning outcomes:
 4. คลิก **Save and display**
 
 **บันทึกผลการทดลอง 8:**
-```bash
- รูปหน้าผลลัพธ์การสร้างรายวิชา
-```
+
+
+<img width="1087" height="549" alt="image" src="https://github.com/user-attachments/assets/574e0c82-d477-429d-9980-72fdc6818a2d" />
+
 
 ---
 
@@ -779,9 +780,9 @@ Programming, Python, Data Science
 3. คลิก **Create user**
 
 **บันทึกผลการทดลอง 9:**
-```bash
- รูปหน้า ผลการสร้าง User ใหม่
-```
+
+<img width="1836" height="337" alt="image" src="https://github.com/user-attachments/assets/17623c2e-7291-44e3-a8d3-ae8c12efc50e" />
+
 
 **วิธีที่ 2: Upload Users (CSV)**
 
@@ -802,9 +803,9 @@ student003,Pass@123,สมศักดิ์,ขยัน,student003@example.com
 6. Preview และยืนยัน
 
 **บันทึกผลการทดลอง 10:**
-```bash
- รูปหน้า ผลการ Upload Users
-```
+
+<img width="1836" height="337" alt="image" src="https://github.com/user-attachments/assets/bfed7d91-68fa-4a27-b33a-ea9ae0d73f92" />
+
 
 #### 6.4.3 การลงทะเบียนเรียน (Enrolment)
 
